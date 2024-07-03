@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  # deployment object name 
+  name: quest-backend-deployment
+spec: #specification of this deployment object
+  replicas: 1  # number of pods
+  selector: # container selector
+    matchLabels:
+      app: quest-backend
+  template:  # template pod, is a new object
+    metadata: 
+      labels: 
+        app: quest-backend
+    spec: 
+      containers: 
+        - name: quest-backend
+          image: rchd88/kube-quest-app-backend
+
+
